@@ -9,8 +9,11 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1
+  # GET /posts/1/comments for comment related to post
   def show
-    render json: @post
+    @post = Post.find(params[:id])
+    @post_comments = Post.find(params[:id]).comments
+    render json: {post: @post, comments: @post_comments}
   end
 
   # POST /posts
@@ -25,13 +28,20 @@ class PostsController < ApplicationController
   end
 
   # PATCH/PUT /posts/1
+  # def update
+  #   if @post.update(post_params)
+  #     render json: @post
+  #   else
+  #     render json: @post.errors, status: :unprocessable_entity
+  #   end
+  # end
+
   def update
-    if @post.update(post_params)
-      render json: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
-    end
+    post = Post.find(params[:id])
+    post.update(post_params)
+    render json: { post: post}
   end
+
 
   # DELETE /posts/1
   def destroy

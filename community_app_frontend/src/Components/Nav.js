@@ -9,6 +9,7 @@ const Nav = () => {
                 <img src = 'https://i.imgur.com/2bjWu4n.png'></img>
             </div>
             <h1>Raccit</h1>
+            
         </div>
     )
 }

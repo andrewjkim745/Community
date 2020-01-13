@@ -9,3 +9,12 @@
 end
 
 puts "Seeded database with Faker"
+
+Comment.create(
+    post_id: 1,
+    username: 'Andrew',
+    reply: 'YupYupYup',
+    
+)
+
+puts "Seeded Comments"
