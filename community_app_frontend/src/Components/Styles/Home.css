@@ -1,0 +1,54 @@
+.create-posts {
+    width: 40%;
+}
+.post-card {
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    margin: 10px;
+}
+.votes {
+    border-style: solid;
+    border-width: .5px
+    
+}
+.delete-div {
+    display: flex;
+    flex-direction: row;
+}
+.delete-button {
+}
+.edit-div {
+    width: 20%;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-button {
+    width: 30%;
+}
+
+.info-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.button-text {
+    text-decoration: none;
+}
+.pencil {
+    padding-left: 20px;
+}

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_204824) do
     t.string "userId"
     t.string "username"
     t.string "reply"
+    t.integer "votes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_id"
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_01_13_204824) do
     t.string "username"
     t.string "link"
     t.string "description"
+    t.integer "views"
+    t.integer "votes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

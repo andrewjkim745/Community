@@ -1,15 +1,18 @@
 import React from 'react'
 import './Styles/Nav.css'
+import { NavLink } from 'react-router-dom'
 
 
 const Nav = () => {
     return (
-        <div className = 'nav-container'>
+        <div className='nav-container'>
             <div className='image-div'>
-                <img src = 'https://i.imgur.com/2bjWu4n.png'></img>
+                <NavLink exact to='/' activeClassName='active'>
+                    <img className='raccoon' src='https://i.imgur.com/2bjWu4n.png'></img>
+                </NavLink>
             </div>
-            <h1>Raccit</h1>
-            
+            <h1 className='title'>Raccit</h1>
+
         </div>
     )
 }

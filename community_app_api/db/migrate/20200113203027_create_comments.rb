@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.string :userId
       t.string :username
       t.string :reply
+      t.integer :votes
 
       t.timestamps
     end
