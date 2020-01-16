@@ -1,20 +1,38 @@
 .create-posts {
-    width: 40%;
+    width: 60%;
 }
 .post-card {
     display: flex;
     border: .5px solid grey;
     margin: 10px;
 }
+
+.post-card:hover {
+    transform: scale(1.03);
+    transition: .5s;
+    
+}
 .votes-cont {
     display: flex;
     flex-direction: column;
     border-right: .5px solid grey !important;
     justify-content: center;
-    width: 10%;
+    width: 20%;
     
 }
+.up-arrow {
+    cursor: pointer;
+}
 
+.up-arrow:hover {
+    color: red;
+    transform: scale(1.5);
+    transition: .5s;
+}
+
+.down-arrow:hover {
+    color: red;
+}
 
 .info-div h3 {
     text-decoration: none !important;
@@ -24,9 +42,19 @@
     flex-direction: row;
 }
 .delete-button {
+    padding: 10px;
+    width: 20px;
+}
+
+.user-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
 }
 
 .title {
+    color: black;
 }
 
 .please {
@@ -35,6 +63,7 @@
 
 .down-arrow {
     transform: rotate(180deg);
+    cursor: pointer;
 }
 
 .edit-div {
@@ -49,7 +78,8 @@
 }
 
 .edit-button {
-    width: 30%;
+    margin-top: 5px;
+    width: 23%;
 }
 
 .info-div {
@@ -72,5 +102,7 @@
     text-decoration: none;
 }
 .pencil {
+    margin-top: 10px;
     padding-left: 20px;
+    height: 30px;
 }

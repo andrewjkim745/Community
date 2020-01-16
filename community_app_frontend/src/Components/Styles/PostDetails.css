@@ -21,7 +21,7 @@
 .votes-container {
     display: flex;
     align-items: center;
-    border: .5px solid grey;
+    border-right: .5px solid grey;
     width: 10%;
 }
 
@@ -42,6 +42,9 @@
 }
 
 .user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     font-size: .7rem;
     color: grey;
 }
