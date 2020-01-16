@@ -7,9 +7,11 @@
     border-width: 1px;
     margin: 10px;
 }
-.votes {
-    border-style: solid;
-    border-width: .5px
+.votes-cont {
+    display: flex;
+    flex-direction: column;
+    border-right: .5px solid grey !important;
+    justify-content: center;
     
 }
 .delete-div {
@@ -17,6 +19,14 @@
     flex-direction: row;
 }
 .delete-button {
+}
+
+.down-arrow {
+    transform: rotate(180deg);
+}
+
+button {
+    background-color: #A3BAC3;
 }
 .edit-div {
     width: 20%;

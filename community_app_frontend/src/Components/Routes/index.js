@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from '../../Components/Home'
 import UpdatePosts from '../../Components/UpdatePosts'
 import CreatePosts from '../../Components/CreatePosts'
+import PostDetails from '../../Components/PostDetails'
 
 
 
@@ -22,6 +23,11 @@ export const Routes = ({ posts, comments }) => (
             exact
             path="/posts/:id/edit"
             component={UpdatePosts}
+        />
+        <Route
+            exact
+            path="/posts/:id"
+            render={props => <PostDetails {...props}/>}
         />
     </Switch>
 )

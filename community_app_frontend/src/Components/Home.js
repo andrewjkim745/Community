@@ -71,19 +71,20 @@ class Home extends React.Component {
         </div>
         {this.state.posts.map(post => {
           return (
+            <NavLink exact to={`/posts/${post.id}`}>
             <div className='post-card' key={post.id}>
-              <div className='votes'>
-                <button>^</button>
+              <div className='votes-cont'>
+                <div className='up-arrow'>^</div>
                 <p>{post.votes}</p>
-                <button>v</button>
+                <div className='down-arrow'>^</div>
               </div>
               <div className='info-div'>
                 <h3>{post.title}</h3>
                 <p>Posted by {post.username} at {post.created_at}</p>
                 <div className='buttons'>
-                  <button onClick={() => this.handleDelete(post)}>
+                  <div onClick={() => this.handleDelete(post)}>
                     <img className='delete-button' src='https://i.imgur.com/I8VKeEG.png'></img>
-                  </button>
+                  </div>
                   <p>delete</p>
                   <NavLink exact to={`/posts/${post.id}/edit`} activeClassName='active' className='edit-div'>
                     <img className='edit-button' src='http://cdn.onlinewebfonts.com/svg/img_186761.png'></img>
@@ -92,6 +93,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
+            </NavLink>
           );
         })}
       </>

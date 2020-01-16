@@ -11,13 +11,14 @@
 end
 
 puts "Seeded database with Faker"
-
-Comment.create(
-    post_id: 1,
-    username: 'Andrew',
-    reply: 'YupYupYup',
-    votes: Faker::Number.number(digits: 3).to_i
+10.times do
+    Comment.create(
+        post_id: rand(10),
+        username: 'Andrew',
+        reply: 'YupYupYup',
+        votes: Faker::Number.number(digits: 3).to_i
     
 )
 
+end
 puts "Seeded Comments"

@@ -1,0 +1,53 @@
+.post-container {
+    display: flex;
+    background-color: white;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    width: 95%;
+    margin-top: 20px;
+}
+
+.background {
+    background-color: grey;
+    height: 300vh;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.votes-container {
+    display: flex;
+    align-items: center;
+    border-style:solid;
+    border-right: grey;
+    border-width: 1px;
+    width: 40px;
+}
+
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.post-image {
+    width: 80%;
+}
+
+.user {
+    font-size: .7rem;
+    color: grey;
+}
+
+.bottom-container {
+    width: 100%;
+    border-top: solid;
+    color: grey;
+
+}
