@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+
+}
+
+main {
+  z-index: 1;
   background-color: #A3BAC3;
-  height: 300vh;
 }
 
 .App-logo {

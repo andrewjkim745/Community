@@ -9,8 +9,7 @@
 }
 
 .background {
-    background-color: grey;
-    height: 300vh;
+
 }
 
 .outer-container {
@@ -22,10 +21,12 @@
 .votes-container {
     display: flex;
     align-items: center;
-    border-style:solid;
-    border-right: grey;
-    border-width: 1px;
-    width: 40px;
+    border: .5px solid grey;
+    width: 10%;
+}
+
+.votes {
+    margin: 0 auto;
 }
 
 

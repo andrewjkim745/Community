@@ -47,7 +47,6 @@ class PostDetails extends React.Component {
         console.log(this.state.title)
         // const { post } = this.state;
         return (
-            <div className='background'>
             <div className='outer-container'>
             <div className='post-container'>
                 <div className='votes-container'>
@@ -66,7 +65,6 @@ class PostDetails extends React.Component {
 
 
 
-            </div>
             </div>
             </div>
         )
