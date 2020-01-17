@@ -34,8 +34,8 @@ import axios from 'axios';
 class Home extends React.Component {
   state = {
     posts: [],
+    comments: [],
     votes: 0,
-    comments: '',
     confirm: false,
     deleted: false
   };
@@ -47,7 +47,7 @@ class Home extends React.Component {
       .then(response => response.json())
       .then(jsonedPosts => this.setState({ posts: jsonedPosts }))
       .catch(error => console.error(error));
-      
+
   }
   handleDelete(post) {
     fetch(`http://localhost:3000/posts/${post.id}`, {
@@ -61,33 +61,40 @@ class Home extends React.Component {
     this.getPosts();
   }
 
-  getComments = async(post_id) => {
+  // getComments(post_id) {
+  //   fetch(`http://localhost:3000/posts/${post_id}/comments`)
+  //     .then(response => response.json())
+  //     .then(jsonedComments => this.setState({ comments: jsonedComments }))
+  //     .catch(error => console.error(error));
+
+  getComments = async (post_id) => {
     let data = await axios.get(`http://localhost:3000/posts/${post_id}`)
     console.log(data)
-    console.log(data[Object.keys(data)[0]].comments[0].username)
-    console.log(data[Object.keys(data)[0]].comments[0].reply)
-    let comments = data[Object.keys(data)[0]].comments[0].reply
-    console.log(comments)
-    this.setState({ 
-      comments: comments
-    })
+    // console.log(data[0])
+    console.log(data[Object.keys(data)[0]])
+    console.log(data[Object.keys(data)[0]].comments[0])
+    let comments = [Object.keys(data)[0]] && data[Object.keys(data)[0]].comments[0].reply
+    console.log('this is in getComments', comments)
+    // this.setState({ 
+    //   comments: comments
+    // })
 
   }
 
 
 
-  handleUpVote = async(post_id) => {
+  handleUpVote = async (post_id) => {
     let data = await axios.get(`http://localhost:3000/posts/${post_id}`)
     console.log(data)
     console.log(data[Object.keys(data)[0]].post.votes)
     // console.log(data[Object.keys(data)[0]].comments[0].reply)
-    let newData = data[Object.keys(data)[0]].post.votes + 1 
+    let newData = data[Object.keys(data)[0]].post.votes + 1
     console.log(newData)
     await axios.put(`http://localhost:3000/posts/${post_id}`, {
       votes: newData
     })
     this.getPosts();
-    
+
     // let newdata = data.post.votes + 1
     // console.log(newdata)
     // data.votes + 1
@@ -96,17 +103,17 @@ class Home extends React.Component {
 
   }
 
-  handleDownVote = async(post_id) => {
+  handleDownVote = async (post_id) => {
     let data = await axios.get(`http://localhost:3000/posts/${post_id}`)
     console.log(data)
     console.log(data[Object.keys(data)[0]].post.votes)
-    let newData = data[Object.keys(data)[0]].post.votes - 1 
+    let newData = data[Object.keys(data)[0]].post.votes - 1
     console.log(newData)
     await axios.put(`http://localhost:3000/posts/${post_id}`, {
       votes: newData
     })
     this.getPosts();
-    
+
     // let newdata = data.post.votes + 1
     // console.log(newdata)
     // data.votes + 1
@@ -116,9 +123,11 @@ class Home extends React.Component {
   }
 
 
-  render() {
 
+  render() {
+    console.log(this.getComments(7))
     
+
     return (
       <>
         <div className='create-posts'>
@@ -133,31 +142,41 @@ class Home extends React.Component {
           return (
             <div className='post-card' key={post.id}>
               <div className='votes-cont'>
-                <div onClick={() => this.handleUpVote(post.id)} className='up-arrow'>^</div>
-                  {post.votes ? post.votes: 0}
-                <div onClick={() => this.handleDownVote(post.id)} className='down-arrow'>^</div>
+                <div onClick={() => this.handleUpVote(post.id)} className='up-arrow'>
+                  <h3>^</h3>
+                </div>
+                <p>{post.votes ? post.votes : 0}</p>
+                <div onClick={() => this.handleDownVote(post.id)} className='down-arrow'>
+                  <h3>^</h3>
+                </div>
               </div>
               <div className='info-div'>
                 <Link exact to={`/posts/${post.id}`} className='please'>
-                  <h3 className='title'>{post.title}</h3>
-                  <div className='user-date'>
-                  <p>{post.username}-</p>
-                  <Moment fromNow>{post.created_at}</Moment>
+                <div className='user-date'>
+                    <p className='user-name'>Posted by {post.username}-</p>
+                    <Moment fromNow>{post.created_at}</Moment>
                   </div>
+                  <div className='title-div'>
+                  <h3 className='title'>{post.title}</h3>
+                  </div>
+
                 </Link>
                 <div className='buttons'>
-                  <div>
-                    {/* {this.getComments(post.id)} */}
+                  <div className='comments'>
+                     {/* {this.getComments(post.id)} */}
                     {/* <p>{this.state.comments}</p> */}
                   </div>
-                  <div onClick={() => this.handleDelete(post)}>
+                  <div className='delete-div' onClick={() => this.handleDelete(post)}>
                     <img className='delete-button' src='https://i.imgur.com/I8VKeEG.png'></img>
+                    <p>delete</p>
                   </div>
-                  <p>delete</p>
-                  <Link exact to={`/posts/${post.id}/edit`} activeClassName='active' className='edit-div'>
-                    <img className='edit-button' src='http://cdn.onlinewebfonts.com/svg/img_186761.png'></img>
-                  </Link>
-                  <p>edit</p>
+                    <Link exact to={`/posts/${post.id}/edit`} activeClassName='active' className='edit-div'>
+                    
+                      <img className='edit-button' src='http://cdn.onlinewebfonts.com/svg/img_186761.png'></img>
+                      <p className='p-edit'>edit</p>
+                    
+                    </Link>
+                  
                 </div>
               </div>
             </div>
@@ -167,4 +186,6 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+
+
+  export default Home;

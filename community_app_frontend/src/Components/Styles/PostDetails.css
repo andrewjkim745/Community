@@ -4,8 +4,10 @@
     border-style: solid;
     border-color: grey;
     border-width: 1px;
-    width: 95%;
+    width: 70%;
+    height: 80%;
     margin-top: 20px;
+    box-shadow: 5px 5px 5px grey;
 }
 
 .background {
@@ -15,6 +17,13 @@
 .outer-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #A3BAC3;
+    opacity: 1;
+    animation: fadeInOpacity;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-duration: .1s;
 }
 
 
@@ -54,4 +63,12 @@
     border-top: solid;
     color: grey;
 
+}
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

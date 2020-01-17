@@ -1,47 +1,63 @@
 import React from 'react'
+import './Styles/PostForm.css'
 // look at form component on react-post and substitute handlesubmit with handleadd
 
 const PostForm = ({ post, handleSubmit, handleChange, }) => (
+    <div className='outer-container'>
+        <div className='form-title'>
+        <p>Create or Update Posts</p>
+        <img className='form-pencil' src='https://i.imgur.com/3YbgKsH.png'/>
+        </div>
+        <div className='line'>
+
+        </div>
     <div className='form-container'>
         <form onSubmit={handleSubmit}>
-            <label>Title</label>
             <span>
                 <textarea
                     value={post.title}
+                    placeholder='title'
                     name='title'
                     required
                     onChange={handleChange}
                 />
             </span>
-            <label>UserName</label>
+
             <span>
                 <textarea
                     value={post.username}
+                    placeholder='username'
                     name='username'
                     required
                     onChange={handleChange}
                 />
             </span>
-            <label>Image Link</label>
+
             <span>
                 <textarea
                     value={post.link}
+                    placeholder='link'
                     name='link'
                     onChange={handleChange}
                 />
             </span>
-            <label>Description</label>
+
             <span>
                 <textarea
+                    className='description-box'
                     value={post.description}
+                    placeholder='description'
                     name='description'
                     required
                     onChange={handleChange}
                 />
             </span>
             {/* <input type="hidden" name="postId" value={id}/> */}
-            <button type='submit'>Submit</button>
+            <div className='submit-div'>
+            <button className='submit' type='submit'>Submit</button>
+            </div>
         </form>
+    </div>
     </div>
 
 )

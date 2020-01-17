@@ -25,7 +25,6 @@ class PostDetails extends React.Component {
     componentDidMount() {
         this.getPost()
     }
-
     getPost = async () => {
         console.log('hello')
         await axios.get(`http://localhost:3000/posts/${this.props.match.params.id}`)
@@ -42,8 +41,8 @@ class PostDetails extends React.Component {
                 })
             })
 
-
     }
+
 
 
     render() {

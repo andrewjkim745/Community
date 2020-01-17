@@ -1,11 +1,41 @@
 .App {
   text-align: center;
+  background-color: #A3BAC3;
+  height: 100%;
+  
 
 }
 
-main {
+.Home {
+  
+}
+
+
+
+.dark-mode .App, .dark-mode .Home, .dark-mode h3, .dark-mode .nav-container, .dark-mode h1, .dark-mode .post-container, .dark-mode .outer-container, .dark-mode .p-edit {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.dark-mode-button {
+  margin-left: 200px;
+  position: absolute;
+  margin-top: 29px;
+  border-radius: 20px;
   z-index: 1;
-  background-color: #A3BAC3;
+}
+.PostDetails {
+  z-index: 2;
+}
+.moon {
+  width: 20px;
+}
+
+main {
+  
   
 }
 
@@ -41,5 +71,15 @@ main {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@keyframes fadeInOpacity {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
   }
 }
