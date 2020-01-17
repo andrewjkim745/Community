@@ -4,7 +4,8 @@
 .post-card {
     display: flex;
     border: .5px solid grey;
-    margin: 10px;
+    margin: 25px;
+    width: 80%;
     opacity: 1;
     animation: fadeInOpacity;
     animation-timing-function: ease-in;
@@ -166,6 +167,19 @@ p {
     /* border-style: solid; */
     /* border-color: black; */
     width: 40%;
+}
+
+
+.header {
+    padding: 50px;
+    margin-right: 410px;
+    color: #EAEBED;
+    font-size: 40px;
+}
+
+.button:hover {
+    background-color: #006989;
+    transition: ease-in 1s;
 }
 .button-text {
     text-decoration: none;

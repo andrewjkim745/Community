@@ -11,7 +11,7 @@ const Nav = () => {
                     <img className='raccoon' src='https://i.imgur.com/2bjWu4n.png'></img>
                 </NavLink>
             </div>
-            <h1 className='app-name'>Raccit</h1>
+            <h1 className='app-name'>Raddit</h1>
 
         </div>
     )

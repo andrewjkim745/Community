@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PostForm from './PostForm'
 import axios from 'axios'
-
+import { Redirect } from 'react-router-dom'
 
 export default class CreatePosts extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class CreatePosts extends Component {
                 description: ''
 
             },
-            newPost: null
+            newPost: false
         }
     }
     // async addPosts() {
@@ -50,6 +50,9 @@ export default class CreatePosts extends Component {
             description: this.state.post.description
 
         })
+        this.setState({
+            newPost: true
+        })
         // const { title, username, link, description } = this.state.post
         // const data = {
         //     title,
@@ -63,6 +66,10 @@ export default class CreatePosts extends Component {
         console.log(this.state.post)
         const { handleSubmit, handleChange } = this;
         const { newPost, post } = this.state;
+
+        if (newPost) {
+            return <Redirect to={'/'}/>
+        }
         return (
             <PostForm
                 post={post}

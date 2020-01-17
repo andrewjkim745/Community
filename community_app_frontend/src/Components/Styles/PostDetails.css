@@ -10,20 +10,17 @@
     box-shadow: 5px 5px 5px grey;
 }
 
-.background {
-
-}
-
 .outer-container {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #A3BAC3;
-    opacity: 1;
+    z-index: 1;
     animation: fadeInOpacity;
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
     animation-duration: .1s;
+    height: 100vh;
 }
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 import PostForm from './PostForm'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 
 class UpdatePosts extends React.Component {
@@ -36,7 +37,6 @@ class UpdatePosts extends React.Component {
         const editedPost = Object.assign(this.state.post, updatedField);
         this.setState({ post: editedPost })
     };
-
     handleSubmit = async(e) => {
         e.preventDefault()
 
@@ -46,19 +46,27 @@ class UpdatePosts extends React.Component {
             link: this.state.post.link,
             description: this.state.post.description
         })
-
-        
+        this.setState({
+            updated: true
+        })
     }
+
+
+
+
 
     render() {
         console.log(this.state.post)
         const { post, updated } = this.state;
         const { handleChange, handleSubmit } = this;
+
+        if (updated) {
+            return <Redirect to={'/'}/>
+        }
     
 
         return (
             <>
-            <p>This is the update Form</p>
                 <PostForm
                     post={post}
                     handleChange={handleChange}

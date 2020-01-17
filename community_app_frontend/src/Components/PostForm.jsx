@@ -1,12 +1,12 @@
 import React from 'react'
 import './Styles/PostForm.css'
+import { Redirect } from 'react-router'
 // look at form component on react-post and substitute handlesubmit with handleadd
 
 const PostForm = ({ post, handleSubmit, handleChange, }) => (
     <div className='outer-container'>
         <div className='form-title'>
         <p>Create or Update Posts</p>
-        <img className='form-pencil' src='https://i.imgur.com/3YbgKsH.png'/>
         </div>
         <div className='line'>
 

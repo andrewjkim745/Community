@@ -26,6 +26,12 @@
   margin-top: 29px;
   border-radius: 20px;
   z-index: 1;
+
+}
+
+.dark-mode-button:hover {
+  transform: scale(1.1);
+  transition: ease-in .2s;
 }
 .PostDetails {
   z-index: 2;

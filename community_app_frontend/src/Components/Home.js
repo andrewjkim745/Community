@@ -73,7 +73,7 @@ class Home extends React.Component {
     // console.log(data[0])
     console.log(data[Object.keys(data)[0]])
     console.log(data[Object.keys(data)[0]].comments[0])
-    let comments = [Object.keys(data)[0]] && data[Object.keys(data)[0]].comments[0].reply
+    let comments = data[Object.keys(data)[0]].comments[0].reply
     console.log('this is in getComments', comments)
     // this.setState({ 
     //   comments: comments
@@ -132,11 +132,14 @@ class Home extends React.Component {
       <>
         <div className='create-posts'>
           <Link exact to='/createposts' activeClassName='active' className='please'>
+          <h3 className='header'>Welcome to Raddit</h3>
             <div className='button'>
               <p className='button-text'>Post</p>
               <img className='pencil' src='https://i.imgur.com/X7GIKlu.png'></img>
             </div>
           </Link>
+          <div>
+          </div>
         </div>
         {this.state.posts.reverse().map(post => {
           return (
